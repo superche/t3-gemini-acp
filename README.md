@@ -30,4 +30,14 @@ This configures an executable path and an argument. The running `agy` owns authe
 
 Verified on macOS with T3 Code Nightly `0.1.12-nightly.20261123.5124` and bundled `agy` `1.5.5`. A fresh T3 thread returned the expected test phrase with Gemini 3.8 Flash without a fresh sign-in. The ACP response did not expose the account email.
 
+## Model availability
+
+T3 builds its model picker from the catalog returned by the local `agy acp` session. Gemini for Mac has its own model picker, and availability can vary by client, plan, and account. To see the models available to the bundled CLI on your machine, run:
+
+```sh
+/Applications/Gemini.app/Contents/Helpers/agy models
+```
+
+On the same Mac, `agy acp` 1.5.5 and 1.5.15 both exposed Gemini 3.8 Flash as their only Gemini model. Version 1.5.15 also rejected attempts to select Gemini 4 Neon, Argon, or Hydrogen in an ACP session. Adding those IDs to T3's Custom models does not grant access. [Google's model availability documentation](https://antigravity.google/docs/models) · [T3's ACP model picker documentation](https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-acp.md#models-and-options)
+
 [T3 Code Local ACP documentation](https://github.com/pingdotgg/t3code/blob/main/docs/user/providers-acp.md#add-a-local-command) · [Google Antigravity ACP documentation](https://antigravity.google/docs/ide/extensions/acp/)
